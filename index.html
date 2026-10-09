@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Cycle Research</title>
+    </head>
+    <body>
+        <div id="fakewebpagecontent">
+            <div class="rock-container">
+  <header class="rock-header">
+    <h1>Mineral Types & The Rock Cycle</h1>
+    <p class="subtitle">A quick guide to Earth's fundamental building blocks and continuous transformations.</p>
+  </header>
+
+  <section class="card">
+    <h2>💎 Major Mineral Types</h2>
+    <p>Minerals are naturally occurring, inorganic, solid elements or compounds with a definite crystalline structure and chemical composition. They are generally grouped into classes based on their chemical makeup:</p>
+    <ul>
+      <li><strong>Silicates:</strong> The largest mineral group (e.g., Quartz, Feldspar, Mica), containing silicon and oxygen.</li>
+      <li><strong>Carbonates:</strong> Minerals containing the carbonate ion combined with calcium, magnesium, or iron (e.g., Calcite, Dolomite).</li>
+      <li><strong>Oxides:</strong> Metal cations bonded to oxygen anions (e.g., Hematite, Magnetite).</li>
+      <li><strong>Sulfides & Sulfates:</strong> Minerals containing sulfur (e.g., Pyrite, Gypsum).</li>
+      <li><strong>Native Elements:</strong> Minerals that occur in pure form in nature (e.g., Gold, Silver, Diamond, Sulfur).</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>🔄 The Rock Cycle</h2>
+    <p>The rock cycle is a continuous geological model that describes how rocks are created, altered, destroyed, and reformed over millions of years through three main types:</p>
+    <ol>
+      <li><strong>Igneous Rocks:</strong> Formed through the cooling and solidification of magma or lava (e.g., Basalt, Granite).</li>
+      <li><strong>Sedimentary Rocks:</strong> Formed from the accumulation, compaction, and cementation of mineral or organic particles (e.g., Sandstone, Limestone).</li>
+      <li><strong>Metamorphic Rocks:</strong> Formed when existing rocks are subjected to intense heat and pressure, changing their mineral structure without melting them (e.g., Marble, Slate).</li>
+    </ol>
+  </section>
+
+  <section class="card resources">
+    <h2>📚 Further Research Sources</h2>
+    <p>Dive deeper into geology and mineralogy with these trusted resources:</p>
+    <ul>
+      <li><a href="https://www.usgs.gov/products/data/science-topics/minerals" target="_blank" rel="noopener">USGS Minerals Information</a></li>
+      <li><a href="https://geology.com/minerals/" target="_blank" rel="noopener">Geology.com Mineralogy Guide</a></li>
+      <li><a href="https://www.nps.gov/subjects/geology/rock-cycle.htm" target="_blank" rel="noopener">National Park Service Rock Cycle Overview</a></li>
+      <li><a href="https://www.mindat.org/" target="_blank" rel="noopener">Mindat.org - The Mineral Database</a></li>
+    </ul>
+  </section>
+</div>
+
+<style>
+  .rock-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+  .rock-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .rock-header h1 {
+    font-size: 2.25rem;
+    color: #1a252f;
+    margin-bottom: 0.5rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+  }
+  .card {
+    background: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  .card h2 {
+    margin-top: 0;
+    color: #2980b9;
+    font-size: 1.35rem;
+  }
+  .card ul, .card ol {
+    margin: 0.5rem 0 0 1.25rem;
+    padding: 0;
+  }
+  .card li {
+    margin-bottom: 0.5rem;
+  }
+  .resources a {
+    color: #2980b9;
+    text-decoration: none;
+  }
+  .resources a:hover {
+    text-decoration: underline;
+  }
+</style>
+        </div>
+    </body>
+    <script>
+        let isopenerdialog = false;
+
+
+        document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "hidden" && isopenerdialog) {
+            isopenerdialog=false;
+            document.getElementById("openerdialogbox").remove();
+        }
+        });
+
+
+        const targetSequence = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
+        let currentStep = 0;
+        window.addEventListener('keydown', (event) => {
+        const key = event.key.toLowerCase();
+        if (currentStep === 0) {
+            if (key === targetSequence[0] && (event.ctrlKey || event.metaKey)) {
+            event.preventDefault();
+            currentStep++;
+            console.log(`Step 1 matched: Ctrl + A`);
+            }
+            return;
+        }
+        if (key === targetSequence[currentStep]) {
+            currentStep++;
+            console.log(`Step ${currentStep} matched: ${key.toUpperCase()}`);
+
+            if (currentStep === targetSequence.length) {
+            triggerComboAction();
+            resetSequence();
+            }
+        } else {
+            if (key === targetSequence[0] && (event.ctrlKey || event.metaKey)) {
+            event.preventDefault();
+            currentStep = 1;
+            } else {
+            resetSequence();
+            }
+        }
+        });
+        function resetSequence() {
+        currentStep = 0;
+        console.log('Sequence reset.');
+        }
+        function triggerComboAction() {
+            isopenerdialog = true;
+            var openerdialog = document.createElement('div');
+            openerdialog.style.cssText="background:#121212;color:white;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:99";
+            openerdialog.id="openerdialogbox";
+            openerdialog.innerHTML=`<h1>Open local .html file</h1>
+            <input id="fileuploader" type="file"></input>
+            <p></p>
+            <button onclick="openFileVia('iframe')">Open via secure iframe =======================================</button>
+            <ul>
+                <li>PROS =======================================</li>
+                <li>Has persistence</li>
+                <li>Loads with typical secure context</li>
+                <li>CONS =======================================</li>
+                <li>Monitorable</li>
+                <li>Disintegrates and has to be relaunched when you leave this tab</li>
+                <li>Does not support refresh</li>
+            </ul>
+            <button onclick="openFileVia('blob')">Open via blob:// =======================================</button>
+            <ul>
+                <li>PROS =======================================</li>
+                <li>Unmonitorable</li>
+                <li>Can be refreshed</li>
+                <li>Can TECHNICALLY be closed and reopened, but will dissolve after some time</li>
+                <li>CONS =======================================</li>
+                <li>No persistence</li>
+                <li>Does not support secure-context features</li>
+                <li>Has most of the downsides of data urls</li>
+            </ul>`;
+            document.body.appendChild(openerdialog);
+        }
+
+        function openFileVia(mode){
+            const fileInput = document.getElementById('fileuploader');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("Please select a file first!");
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const uploadedFileContent = event.target.result;
+                console.log("File content loaded as string:", uploadedFileContent.substring(0, 100) + "...");
+
+                if(mode === 'iframe'){
+                    var openerdialog = document.createElement('iframe');
+                    openerdialog.style.cssText="background:#121212;color:white;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:999";
+                    openerdialog.srcdoc=uploadedFileContent;
+                    document.body.appendChild(openerdialog);
+                } else if (mode === 'blob'){
+                    const blob = new Blob([uploadedFileContent], { type: 'text/html' });
+                    const blobURL = URL.createObjectURL(blob);
+                    window.open(blobURL, '_blank');
+
+                }
+            };
+            reader.readAsText(file);
+        }
+
+    </script>
+</html>
