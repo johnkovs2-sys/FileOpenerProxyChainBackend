@@ -154,6 +154,7 @@
             <p>Some of the information bellow is different due to the https origin of the blob. Blobs seem to have persistence, and the extension-level blockage direct iframe bypass exploit does not seem effective. This affects systems such as Shallot Browser and JSVM Ibrowser. Please recheck the below information.</p>
             <button onclick="openFileVia('iframe')">Open via secure iframe =======================================</button>
             <ul>
+                <li>Generally use this while securly is inactive</li>
                 <li>PROS =======================================</li>
                 <li>Has persistence</li>
                 <li>Loads with typical secure context</li>
@@ -165,6 +166,7 @@
             </ul>
             <button onclick="openFileVia('blob')">Open via blob:// =======================================</button>
             <ul>
+                <li>Generally use this while securly is active</li>
                 <li>PROS =======================================</li>
                 <li>Unmonitorable</li>
                 <li>Can be refreshed</li>
