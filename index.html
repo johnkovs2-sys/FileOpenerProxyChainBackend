@@ -150,11 +150,14 @@
             openerdialog.innerHTML=`<h1>Open local .html file</h1>
             <input id="fileuploader" type="file"></input>
             <p></p>
+            <h3>Notice</h3>
+            <p>Some of the information bellow is different due to the https origin of the blob. Blobs seem to have persistence, and the extension-level blockage direct iframe bypass exploit does not seem effective. This affects systems such as Shallot Browser and JSVM Ibrowser. Please recheck the below information.</p>
             <button onclick="openFileVia('iframe')">Open via secure iframe =======================================</button>
             <ul>
                 <li>PROS =======================================</li>
                 <li>Has persistence</li>
                 <li>Loads with typical secure context</li>
+                <li>Title does not show in history</li>
                 <li>CONS =======================================</li>
                 <li>Monitorable</li>
                 <li>Disintegrates and has to be relaunched when you leave this tab</li>
@@ -167,8 +170,8 @@
                 <li>Can be refreshed</li>
                 <li>Can TECHNICALLY be closed and reopened, but will dissolve after some time</li>
                 <li>CONS =======================================</li>
-                <li>No persistence</li>
-                <li>Does not support secure-context features</li>
+                <li>Title shows in history</li>
+                <li>Umcertain support for secure-context features</li>
                 <li>Has most of the downsides of data urls</li>
             </ul>`;
             document.body.appendChild(openerdialog);
