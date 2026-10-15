@@ -98,6 +98,29 @@
         </div>
     </body>
     <script>
+
+        const GLOBALRESETCYCLE = 0;
+
+
+
+
+        
+        const now = new Date();
+
+// Extract components with padding
+const HH   = String(now.getHours()).padStart(2, '0');
+const mm   = String(now.getMinutes()).padStart(2, '0');
+const MM   = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+const DD   = String(now.getDate()).padStart(2, '0');
+const YYYY = String(now.getFullYear());
+
+// Combine into HHmmMMDDYYYY format
+const forwardString = `${HH}${mm}${MM}${DD}${YYYY}`;
+
+// Invert (reverse) the string
+const currentAuthPin = forwardString.split('').reverse().join('');
+
+
         let isopenerdialog = false;
 
 
@@ -143,6 +166,21 @@
         console.log('Sequence reset.');
         }
         function triggerComboAction() {
+            const lastAuth = parseInt(localStorage.getItem("lastSuccessfulAuth"), 10);
+    
+    if (lastAuth !== GLOBALRESETCYCLE || isNaN(lastAuth)) {
+                let promptedPIN = prompt("Enter the authenticating Pin");
+                if (promptedPin == currentAuthPin){
+                    localStorage.setItem("lastSuccessfulAuth", GLOBALRESETCYCLE);
+                    onauthsuccess();
+                } else {
+                    alert("Authentication failed");
+                    location.reload();
+                }
+            }
+        }
+
+        function onauthsuccess(){
             isopenerdialog = true;
             var openerdialog = document.createElement('div');
             openerdialog.style.cssText="background:#121212;color:white;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:99";
