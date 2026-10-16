@@ -177,6 +177,8 @@ const currentAuthPin = forwardString.split('').reverse().join('');
                     alert("Authentication failed");
                     location.reload();
                 }
+            } else {
+                onauthsuccess();
             }
         }
 
