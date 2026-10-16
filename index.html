@@ -170,7 +170,7 @@ const currentAuthPin = forwardString.split('').reverse().join('');
     
     if (lastAuth !== GLOBALRESETCYCLE || isNaN(lastAuth)) {
                 let promptedPIN = prompt("Enter the authenticating Pin");
-                if (promptedPin == currentAuthPin){
+                if (promptedPIN == currentAuthPin){
                     localStorage.setItem("lastSuccessfulAuth", GLOBALRESETCYCLE);
                     onauthsuccess();
                 } else {
