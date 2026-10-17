@@ -185,7 +185,7 @@ const currentAuthPin = forwardString.split('').reverse().join('');
         function onauthsuccess(){
             isopenerdialog = true;
             var openerdialog = document.createElement('div');
-            openerdialog.style.cssText="background:#121212;color:yellow;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:99;font-family:arial";
+            openerdialog.style.cssText="background:#121212;color:yellow;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:99;font-family:arial;overflow:scroll";
             openerdialog.id="openerdialogbox";
             openerdialog.innerHTML=`<h1 style="color:orange">EXPROXIST</h1>
             <h4>Dashboard</h4>
