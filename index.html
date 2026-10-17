@@ -185,13 +185,16 @@ const currentAuthPin = forwardString.split('').reverse().join('');
         function onauthsuccess(){
             isopenerdialog = true;
             var openerdialog = document.createElement('div');
-            openerdialog.style.cssText="background:#121212;color:white;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:99";
+            openerdialog.style.cssText="background:#121212;color:yellow;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:99;font-family:arial";
             openerdialog.id="openerdialogbox";
-            openerdialog.innerHTML=`<h1>Open local .html file</h1>
+            openerdialog.innerHTML=`<h1 style="color:orange">EXPROXIST</h1>
+            <h4>Dashboard</h4>
+            <h6>v3</h6>
+            <h3 style="color:red">[!] Notice</h3>
+            <p>In order for accounts to work as intended, the servers will reset this weekend and you will have to get authorized again.</p>
+            <h1>Open local .html file ---------------------------------------------------</h1>
             <input id="fileuploader" type="file"></input>
             <p></p>
-            <h3>Notice</h3>
-            <p>Some of the information bellow is different due to the https origin of the blob. Blobs seem to have persistence, and the extension-level blockage direct iframe bypass exploit does not seem effective. This affects systems such as Shallot Browser and JSVM Ibrowser. Please recheck the below information.</p>
             <button onclick="openFileVia('iframe')">Open via secure iframe =======================================</button>
             <ul>
                 <li>Generally use this while securly is inactive</li>
@@ -215,7 +218,8 @@ const currentAuthPin = forwardString.split('').reverse().join('');
                 <li>Title shows in history</li>
                 <li>Uncertain support for secure-context features</li>
                 <li>Has most of the downsides of data urls</li>
-            </ul>`;
+            </ul>
+            <h1>---------------------------------------------------------------------------</h1>`;
             document.body.appendChild(openerdialog);
         }
 
