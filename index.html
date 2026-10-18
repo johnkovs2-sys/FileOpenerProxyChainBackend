@@ -99,7 +99,40 @@
     </body>
     <script>
 
-        const GLOBALRESETCYCLE = 1;
+
+
+
+
+      // ARM (active remote managment) components ==========================================================================================================================================
+        const GLOBALRESETCYCLE = 2;
+
+
+
+        const ACCOUNT_BLACKLIST = [];
+        //==================================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 
 
@@ -119,6 +152,21 @@ const forwardString = `${HH}${mm}${MM}${DD}${YYYY}`;
 
 // Invert (reverse) the string
 const currentAuthPin = forwardString.split('').reverse().join('');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         let isopenerdialog = false;
@@ -168,10 +216,30 @@ const currentAuthPin = forwardString.split('').reverse().join('');
         function triggerComboAction() {
             const lastAuth = parseInt(localStorage.getItem("lastSuccessfulAuth"), 10);
     
-    if (lastAuth !== GLOBALRESETCYCLE || isNaN(lastAuth)) {
+            if (lastAuth !== GLOBALRESETCYCLE || isNaN(lastAuth)) {
                 let promptedPIN = prompt("Enter the authenticating Pin");
                 if (promptedPIN == currentAuthPin){
                     localStorage.setItem("lastSuccessfulAuth", GLOBALRESETCYCLE);
+
+
+
+
+                    //if no account
+                    if (localStorage.getItem("UUSERID") === null) {
+                      let chunkedTimestamp = (forwardString.match(/.{1,2}/g) || []).flatMap(chunk => {
+                          return parseInt(chunk, 10) > 25 ? chunk.split('') : [chunk];
+                      });
+                      let NEWUUID = chunkedTimestamp.map(num => {
+                        let index = parseInt(num, 10);
+                        return alphabet[index] || '';
+                      }).join('');
+                      localStorage.setItem("UUSERID", NEWUUID);
+                    }
+
+
+
+
+
                     onauthsuccess();
                 } else {
                     alert("Authentication failed");
@@ -188,10 +256,10 @@ const currentAuthPin = forwardString.split('').reverse().join('');
             openerdialog.style.cssText="background:#121212;color:yellow;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:99;font-family:arial;overflow:scroll";
             openerdialog.id="openerdialogbox";
             openerdialog.innerHTML=`<h1 style="color:orange">EXPROXIST</h1>
-            <h4>Dashboard</h4>
-            <h6>v3</h6>
+            <h4>Dashboard - `+localStorage.getItem("UUSERID")+`</h4>
+            <h6>v4</h6>
             <h3 style="color:red">[!] Notice</h3>
-            <p>In order for accounts to work as intended, the servers will reset this weekend and you will have to get authorized again.</p>
+            <p>If you clear "cookies and other site data" in your browser, your account will be deleted. Recovery options will be available soon as more account features are added.</p>
             <h1>Open local .html file ---------------------------------------------------</h1>
             <input id="fileuploader" type="file"></input>
             <p></p>
