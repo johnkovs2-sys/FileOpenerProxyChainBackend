@@ -108,6 +108,11 @@
 
 
 
+        const VERIFIED_ACCOUNTS = ["RDEKSUCG"];
+        const VERIFIED_ACC_NAMES = ["John"];
+
+
+
         const ACCOUNT_BLACKLIST = [];
         //==================================================================================================================================================================================
 
@@ -256,8 +261,8 @@ const currentAuthPin = forwardString.split('').reverse().join('');
             openerdialog.style.cssText="background:#121212;color:yellow;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:99;font-family:arial;overflow:scroll";
             openerdialog.id="openerdialogbox";
             openerdialog.innerHTML=`<h1 style="display:block;margin:0 auto;text-align:center;width:400px;border:15px ridge gold;color:orange;background:brown;font-size:400%;font-family:arial">EXPROXIST</h1>
-            <h4>Dashboard - `+localStorage.getItem("UUSERID")+`</h4>
-            <h6>v4</h6>
+            <h4>Dashboard - `+localStorage.getItem("UUSERID")+`${VERIFIED_ACCOUNTS.includes(localStorage.getItem("UUSERID")) ? `<div title="`+VERIFIED_ACC_NAMES[VERIFIED_ACCOUNTS.indexOf(localStorage.getItem('UUSERID'))]+`" style="background:lime;border-radius:30px;height:10px;width:10px">✔️</div>` : ``}</h4>
+            <h6>v5</h6>
             <h3 style="color:red">[!] Notice</h3>
             <p>If you clear "cookies and other site data" in your browser, your account will be deleted. Recovery options will be available soon as more account features are added.</p>
             <h1>Open local .html file ---------------------------------------------------</h1>
