@@ -261,10 +261,14 @@ const currentAuthPin = forwardString.split('').reverse().join('');
             openerdialog.style.cssText="background:#121212;color:yellow;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:99;font-family:arial;overflow:scroll";
             openerdialog.id="openerdialogbox";
             openerdialog.innerHTML=`<h1 style="display:block;margin:0 auto;text-align:center;width:400px;border:15px ridge gold;color:orange;background:brown;font-size:400%;font-family:arial">EXPROXIST</h1>
-            <h4>Dashboard - `+localStorage.getItem("UUSERID")+`${VERIFIED_ACCOUNTS.includes(localStorage.getItem("UUSERID")) ? `<div title="Verified Account ID - `+VERIFIED_ACC_NAMES[VERIFIED_ACCOUNTS.indexOf(localStorage.getItem('UUSERID'))]+`" style="background:linear-gradient(to top, blue, cyan);border-radius:30px;height:30px;width:30px">✔️</div>` : ``}</h4>
+            <div style="background:linear-gradient(to bottom right, gainsboro, gold);border:7px ridge gold;color:black;width:180px;">
+            <h4>User ID - `+localStorage.getItem("UUSERID")+`${VERIFIED_ACCOUNTS.includes(localStorage.getItem("UUSERID")) ? `<div title="Verified Account ID - `+VERIFIED_ACC_NAMES[VERIFIED_ACCOUNTS.indexOf(localStorage.getItem('UUSERID'))]+`" style="background:linear-gradient(to top, blue, cyan);border-radius:20px;height:20px;width:20px">✔️</div>` : ``}</h4>
+            </div>
             <h6>v5</h6>
+            <div style="background:linear-gradient(to bottom right, gainsboro, gold);border:7px ridge gold;color:black;">
             <h3 style="color:red">[!] Notice</h3>
             <p>If you clear "cookies and other site data" in your browser, your account will be deleted. Recovery options will be available soon as more account features are added.</p>
+            </div>
             <h1>Open local .html file ---------------------------------------------------</h1>
             <input id="fileuploader" type="file"></input>
             <p></p>
