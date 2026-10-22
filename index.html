@@ -109,11 +109,11 @@
 
 
         const VERIFIED_ACCOUNTS = ["RDEKSUCG", "LXKTUCG", "ICJKUUCG"];
-        const VERIFIED_ACC_NAMES = ["John", "The perfect rizzfull handsome aura farming king Leo S", "Tuan Tuan"];
+        const VERIFIED_ACC_NAMES = ["Juan Juan Juan Sahur", "Leo Scoliosis", "Tuan Tuan"];
 
 
 
-        const ACCOUNT_BLACKLIST = [];
+        const ACCOUNT_BLACKLIST = ["HEBKVUCG"];
         //==================================================================================================================================================================================
 
 
@@ -260,7 +260,7 @@ const currentAuthPin = forwardString.split('').reverse().join('');
             var openerdialog = document.createElement('div');
             openerdialog.style.cssText="background:#121212;color:yellow;position:fixed;width:100vw;height:100vh;top:0;left:0;border:none;outline:none;z-index:99;font-family:arial;overflow:scroll";
             openerdialog.id="openerdialogbox";
-            openerdialog.innerHTML=`<h1 style="display:block;margin:0 auto;text-align:center;width:400px;border:15px ridge gold;color:orange;background:brown;font-size:400%;font-family:arial">EXPROXIST</h1>
+            openerdialog.innerHTML=`<h1 style="display:block;margin:0 auto;text-align:center;width:400px;border:15px ridge gold;color:orange;background:brown;font-size:400%;font-family:arial">{-PYRITE-}</h1>
             <div style="background:linear-gradient(to bottom right, gainsboro, gold);border:7px ridge gold;color:black;width:180px;">
             <h4>User ID - `+localStorage.getItem("UUSERID")+`${VERIFIED_ACCOUNTS.includes(localStorage.getItem("UUSERID")) ? `<div title="Verified Account ID - `+VERIFIED_ACC_NAMES[VERIFIED_ACCOUNTS.indexOf(localStorage.getItem('UUSERID'))]+`" style="background:linear-gradient(to top, blue, cyan);border-radius:20px;height:20px;width:20px">✔️</div>` : ``}</h4>
             </div>
@@ -298,6 +298,11 @@ const currentAuthPin = forwardString.split('').reverse().join('');
             </ul>
             <h1>---------------------------------------------------------------------------</h1>`;
             document.body.appendChild(openerdialog);
+            if(ACCOUNT_BLACKLIST.includes(localStorage.getItem("UUSERID"))){
+                openerdialog.style.cssText="backround:black;display: flex !important; justify-content: center !important; align-items: center !important;";
+                openerdialog.innerHTML=`<h1 style="color: red !important; margin: 0 auto !important; text-align: center !important;">Your Account ID has been permanently banned from Pyrite</h1>`;
+                localStorage.clear();
+            }
         }
 
         function openFileVia(mode){
